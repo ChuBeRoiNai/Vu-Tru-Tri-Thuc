@@ -1,0 +1,119 @@
+.pdf-container {
+    width: 100%;
+    height: 1000px; /* Bạn có thể điều chỉnh chiều cao tùy ý */
+    border: 1px solid #ddd;
+}
+.my-iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+.carousel {
+    margin-top: 98px;
+}
+
+.navbar {
+    border-radius: 5px;
+    padding: 0.5rem;
+    transition: background-color 0.5s ease;
+    background-color: #01305f;
+}
+
+.navbar-brand.me-auto {
+    color: #fff;
+    font-size: 25px;
+    transition: 0.3s color;
+    font-family: initial;
+    font-style: italic;
+    font-weight: bold;
+}
+
+
+.btn.rounded-pill.text-white {
+    background-color: #056c50;
+    color: #fff;
+    text-decoration: none;
+    display: inline-block;
+    padding: 10px 20px;
+}
+
+.btn.rounded-pill.text-white:hover {
+    background-color: #044b37;
+    color: #e0e0e0;
+    border-color: #044b37;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.25rem;
+    color: #fff;
+}
+
+.navbar-toggler:focus,
+.btn-close:focus {
+    box-shadow: none;
+    outline: none;
+}
+
+.nav-link.mx-lg-2 {
+    color: #fff;
+    font-weight: bold;
+    position: relative;
+    font-size: 15px;
+}
+
+.nav-link.mx-lg-2:hover,
+.nav-link.mx-lg-2.active {
+    color: rgb(202, 153, 4);
+}
+
+@media (min-width: 991px) {
+    .nav-link::before {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 2px;
+        background-color: #009970;
+        visibility: hidden;
+        transition: 0.3s ease-in-out;
+    }
+
+    .nav-link:hover::before,
+    .nav-link.active::before {
+        width: 100%;
+        visibility: visible;
+    }
+}
+
+.anh .text-decoration-none {
+    color: #fff;
+    font-weight: bold;
+}
+
+.card-img-top.rounded:hover {
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.anh .card-title {
+    font-weight: bold;
+}
+
+.anh .card-title:hover {
+    color: #31d9aa;
+    font-weight: bold;
+    transform: scale(1.05);
+    transition: all 0.3s ease;
+}
+
+.card.position-relative {
+    background-color: rgb(29, 26, 26);
+    ;
+    border: none;
+}

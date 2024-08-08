@@ -1,0 +1,136 @@
+<div class="carousel">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-auto" href="#"><img width="210px" src="image/logo.png" alt=""></a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header text-white" style="background-color: #1b1c1ddb;">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel ">Danh mục</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="background-color:#01305f;">
+          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3" >
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#">TRANG CHỦ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link mx-lg-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                THỂ LOẠI
+              </a>
+              <ul class="dropdown-menu">
+                <!-- Danh sách thể loại sách -->
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách thiếu nhi')">Sách thiếu nhi</a>
+                </li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách tâm lý - kỹ năng sống')">Sách tâm
+                    lý - kỹ năng sống</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách thể thao - nghệ thuật')">Sách thể
+                    thao - nghệ thuật</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách lịch sử - chính trị')">Sách lịch
+                    sử - chính trị</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách huyền bí - giả tưởng')">Sách
+                    huyền bí - giả tưởng</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách phiêu lưu - mạo hiểm')">Sách
+                    phiêu lưu - mạo hiểm</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Triết học')">Triết học</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Văn học Việt Nam')">Văn học Việt Nam</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách ẩm thực - nấu ăn')">Sách ẩm thực
+                    - nấu ăn</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách Khoa học - công nghệ')">Sách Khoa
+                    học - công nghệ</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách khoa học - tự nhiên')">Sách khoa
+                    học - tự nhiên</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách kinh doanh')">Sách kinh doanh</a>
+                </li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách y học - sức khỏe')">Sách y học -
+                    sức khỏe</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Tiểu Thuyết')">Tiểu Thuyết</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!bookshelf">GIÁ SÁCH <span
+                  class="badge bg-danger">{{cart.length}}</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!lienhe">LIÊN HỆ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!gioithieu">GIỚI THIỆU</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!gopy">GÓP Ý</a>
+            </li>
+            <li>
+              
+            </li>
+          </ul>
+        </div>
+      </div>
+      <form class="d-flex mt-3 mt-lg-0" ng-submit="searchProduct()">
+        <!-- Ô nhập thông tin tìm kiếm -->
+        <div class="flex-grow-1 mx-2">
+          <input type="text" class="form-control" ng-click="searchProduct()" id="searchKeyword" ng-model="searchKeyword"
+            placeholder="Nhập thông tin tìm kiếm...">
+        </div>
+
+        <!-- Nút Tìm Kiếm -->
+        <div class="flex-grow-1 mx-2">
+          <button type="submit" class="btn btn-danger" ng-click="searchProduct()">Tìm Kiếm</button>
+        </div>
+      </form>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+    <section style="background-color: rgb(239, 236, 236);">
+        <div class="container">
+            <div class="row justify-content-center align-items-center">
+                
+                        <div class="mt-3 mb-4">
+                            <div class="card poly-cart">
+                                <div class="card-header" style="font-weight: bold; background-color: #01305f">
+                                    <h3 class="text-white p-2 mt-2 text-lg-start">GIÁ SÁCH CỦA BẠN</h3>
+                                </div>
+                            </div>
+                            <div class="border border-top-0 rounded-bottom p-4 bg-white">
+                                <table class="table mt-3 ">
+                                    <thead>
+                                        <tr class="text-center">
+                                            <th scope="col" class="text-center">TÊN SÁCH</th>
+                                            <th scope="col">TÁC GIẢ</th>
+                                            <th scope="col">THỂ LOẠI</th>
+                                            <th scope="col">ĐỌC NGAY</th>
+                                            <th scope="col">XÓA</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="text-center">
+                                        <tr ng-repeat="p in cart" class="align-middle text-center">
+                                            <th scope="row" class="">
+                                                <div class="d-flex align-items-center">
+                                                    <div class="bg-danger me-2">
+                                                        <img src="image/{{p.image}}.jpg" alt="" class="img-thumbnail" width="100px">
+                                                    </div>
+                                                    <div class="text-start">
+                                                        <span>{{p.name}}</span> <br>
+                                                    </div>
+                                                </div>
+                                            </th>
+                                            <td class=""><span>{{p.author}}</span></td>
+                                            <td class=""><span>{{p.kind}}</span></td>
+                                            <td class=""><a href="#!detail/{{p.id}}" class="btn btn-danger">
+                                                <i class="fa-solid fa-cart-shopping"></i> Đọc ngay
+                                            </a></td>
+                                            <td><i ng-click="removeCart(p.id)" class="bi bi-trash3"></i></td>    
+                                        </tr>
+                                    </tbody>
+                                    
+                                </table> 
+                            </div>
+                        </div>
+          </div>
+        </div>
+    </section>
+    
+    
+</div>

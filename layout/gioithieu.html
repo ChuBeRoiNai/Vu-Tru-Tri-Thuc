@@ -1,0 +1,197 @@
+<div class="carousel">
+  <nav class="navbar navbar-expand-lg fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand me-auto" href="#"><img width="210px" src="image/logo.png" alt=""></a>
+      <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+        <div class="offcanvas-header text-white" style="background-color: #1b1c1ddb;">
+          <h5 class="offcanvas-title" id="offcanvasNavbarLabel ">Danh mục</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body" style="background-color:#01305f;">
+          <ul class="navbar-nav justify-content-center flex-grow-1 pe-3" >
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#">TRANG CHỦ</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link mx-lg-2" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                THỂ LOẠI
+              </a>
+              <ul class="dropdown-menu">
+                <!-- Danh sách thể loại sách -->
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách thiếu nhi')">Sách thiếu nhi</a>
+                </li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách tâm lý - kỹ năng sống')">Sách tâm
+                    lý - kỹ năng sống</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách thể thao - nghệ thuật')">Sách thể
+                    thao - nghệ thuật</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách lịch sử - chính trị')">Sách lịch
+                    sử - chính trị</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách huyền bí - giả tưởng')">Sách
+                    huyền bí - giả tưởng</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách phiêu lưu - mạo hiểm')">Sách
+                    phiêu lưu - mạo hiểm</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách truyền cảm hứng')">Sách truyền
+                    cảm hứng</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách ẩm thực - nấu ăn')">Sách ẩm thực
+                    - nấu ăn</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách Khoa học - công nghệ')">Sách Khoa
+                    học - công nghệ</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách khoa học - tự nhiên')">Sách khoa
+                    học - tự nhiên</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách kinh doanh')">Sách kinh doanh</a>
+                </li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Sách y học - sức khỏe')">Sách y học -
+                    sức khỏe</a></li>
+                <li><a class="dropdown-item" href="#!genre" ng-click="selectKind('Tiểu Thuyết')">Tiểu Thuyết</a></li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!bookshelf">GIÁ SÁCH <span
+                  class="badge bg-danger">{{cart.length}}</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!lienhe">LIÊN HỆ</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!gioithieu">GIỚI THIỆU</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link mx-lg-2" href="#!gopy">GÓP Ý</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <form class="d-flex mt-3 mt-lg-0" ng-submit="searchProduct()">
+        <!-- Ô nhập thông tin tìm kiếm -->
+        <div class="flex-grow-1 mx-2">
+          <input type="text" class="form-control" ng-click="searchProduct()" id="searchKeyword" ng-model="searchKeyword"
+            placeholder="Nhập thông tin tìm kiếm...">
+        </div>
+
+        <!-- Nút Tìm Kiếm -->
+        <div class="flex-grow-1 mx-2">
+          <button type="submit" class="btn btn-danger" ng-click="searchProduct()">Tìm Kiếm</button>
+        </div>
+      </form>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
+        aria-controls="offcanvasNavbar" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+    </div>
+  </nav>
+      <style>
+        .container1 {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: #fff;
+            overflow: hidden; /* Ensure content does not overflow */
+        }
+    
+        /* Heading Styles */
+        .subheading {
+            font-size: 1.5em;
+            color: #555;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    
+        .main-heading {
+            font-size: 2.5em;
+            color: #0b447d;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+    
+        .intro {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 20px;
+            text-align: center;
+            font-weight: bold;
+        }
+    
+        /* Flexbox Layout */
+        .layout {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+    
+        .layout .image, .layout .text {
+            flex: 1;
+            min-width: 300px; /* Adjust based on your needs */
+        }
+    
+        .layout .image img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            animation: slideInLeft 2s forwards; /* Animation for image */
+            opacity: 0; /* Initially hidden */
+        }
+    
+        .layout .text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideInRight 2s forwards; /* Animation for text */
+            opacity: 0; /* Initially hidden */
+        }
+    
+        .layout .text p {
+            margin-bottom: 20px;
+            font-size: 1.1em;
+            line-height: 1.6;
+        }
+    
+        strong {
+            color: #0b447d;
+        }
+    
+        /* Keyframes for animations */
+        @keyframes slideInLeft {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    
+        @keyframes slideInRight {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+    
+    <div class="container1">
+        <h3 class="subheading mt-3">GIỚI THIỆU</h3>
+        <h1 class="main-heading mb-3">WEBSITE VŨ TRỤ TRI THỨC</h1>
+        <div class="layout">
+            <div class="image">
+                <img class="mt-5" src="image/hinh-anh-cuon-sach-dep.jpg" alt="Hình ảnh cuốn sách đẹp">
+                <img class="mt-2" src="image/hinh-anh-cuon-sach-dep-1.jpg" alt="Hình ảnh cuốn sách khác">
+            </div>
+            <div class="text">
+                <h3 class="intro">KHÁM PHÁ THẾ GIỚI QUA TỪNG TRANG GIẤY</h3>
+                <p>Chào mừng bạn đến với <strong>Website Vũ Trụ Tri Thức</strong>, nơi bạn có thể khám phá và tận hưởng một kho tàng sách phong phú và đa dạng. Tại đây, chúng tôi cung cấp một không gian trực tuyến thú vị, nơi bạn có thể tìm thấy những cuốn sách yêu thích, từ các tác phẩm văn học cổ điển đến những tác phẩm mới nhất.</p>
+                <p>Chúng tôi cam kết mang đến cho bạn trải nghiệm đọc sách tuyệt vời nhất với giao diện dễ sử dụng và thông tin đầy đủ về các đầu sách. Bạn sẽ có cơ hội tìm hiểu sâu hơn về những cuốn sách thú vị và mở rộng tầm hiểu biết của mình qua từng trang sách.</p>
+                <p>Hãy cùng chúng tôi khám phá thế giới của những câu chuyện và tri thức, và tìm thấy những cuốn sách làm phong phú thêm cuộc sống của bạn.</p>
+                <p>Chúng tôi mong rằng <strong>Website Vũ Trụ Tri Thức</strong> sẽ trở thành người bạn đồng hành đáng tin cậy trên hành trình tìm kiếm tri thức và khám phá thế giới qua từng trang sách. Cảm ơn bạn đã ghé thăm và chúc bạn có những giờ phút thư giãn và bổ ích khi đọc sách cùng chúng tôi.</p>
+            </div>
+        </div>
+    </div>
+    
+</div>
